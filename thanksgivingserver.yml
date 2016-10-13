@@ -8,7 +8,7 @@
          clc_server:
            name: tday
            template: ubuntu-14-64
-           count: 2
+           count: 1
            cpu: 1
            memory: 2
            group: Ansible
