@@ -7,6 +7,7 @@
        - name: Deploy servers
          clc_server:
            name: tday
+           password: testserver123
            template: ubuntu-14-64
            count: 1
            cpu: 1
