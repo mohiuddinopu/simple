@@ -1,2 +1,4 @@
-- name: upgrade all packages
-  shell: "mkdir /tmp/runner_test"
+- hosts: all
+  tasks:
+    - name: mkdir
+      shell: "mkdir /tmp/runner_test"
