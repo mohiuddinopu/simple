@@ -1,11 +1,15 @@
 ---
-   - name: Instantiate Hadoop Cluster
-     hosts: localhost
-     gather_facts: False
-     connection: local
-     tasks:
-       - name: Create / Verify a Server Group at CenturyLink Cloud
-         clc_group:
-           name: 'BDaaS_testing_cluster_group'
-           parent: 'Default Group'
-           state: present
+- name: Create Server Group
+  hosts: localhost
+  gather_facts: False
+  connection: local
+  tasks:
+    - name: Create a Server Group at CenturyLink Cloud
+      clc_group:
+        name: 'BDaas_test_group'
+        parent: 'Default Group'
+        state: present
+      register: clc
+
+    - name: debug
+      debug: var=clc
