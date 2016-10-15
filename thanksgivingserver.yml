@@ -1,12 +1,23 @@
 ---
-   - name: Thanksgiving Servers
+   - name: Instantiate Hadoop Cluster
      hosts: localhost
      gather_facts: False
      connection: local
      tasks:
-       - name: Deploy servers
+       - name: Create / Verify a Server Group at CenturyLink Cloud
+         clc_group:
+           name: 'BDaaS_testing_cluster_group'
+           parent: 'Default Group'
+           state: present
+           register: clc_group
+
+       - name: debug
+         debug: var=clc_group
+
+
+       - name: Deploy Master Nodes
          clc_server:
-           name: tday
+           name: MSTR
            password: testserver123
            template: ubuntu-14-64
            count: 1
@@ -19,6 +30,25 @@
              - 22
              - 80
            ttl: 345600
-         register: clc
+         register: clc_master
        - name: debug
-         debug: var=clc.server_ids
+         debug: var=clc_master.server_ids
+
+       - name: Deploy Data Node
+         clc_server:
+           name: DATA
+           password: testserver123
+           template: ubuntu-14-64
+           count: 3
+           cpu: 1
+           memory: 2
+           group: Ansible
+           state: present
+           add_public_ip: true
+           public_ip_ports:
+             - 22
+             - 80
+           ttl: 345600
+         register: clc_data
+       - name: debug
+         debug: var=clc_data.server_ids
