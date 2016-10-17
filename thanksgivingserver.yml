@@ -7,5 +7,3 @@
     - name: Create a Server Group at CenturyLink Cloud
       clc_group:
         name: 'BDaas_test_group'
-        parent: 'Default Group'
-        state: present
