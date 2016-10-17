@@ -9,7 +9,3 @@
         name: 'BDaas_test_group'
         parent: 'Default Group'
         state: present
-      register: clc
-
-    - name: debug
-      debug: var=clc
