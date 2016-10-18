@@ -21,4 +21,3 @@
           - 22
           - 80
         ttl: 345600
-  register: clc_master
