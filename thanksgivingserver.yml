@@ -14,7 +14,7 @@
         count: 1
         cpu: 1
         memory: 2
-        group: BdaaS_test
+        group: Ansible
         state: present
         add_public_ip: true
         public_ip_ports:
