@@ -10,7 +10,7 @@
     - name: Deploy Master Nodes
       clc_server:
         name: RHEL
-        template: RHEL6-64
+        template: rhel-6-64
         count: 1
         cpu: 1
         memory: 2
