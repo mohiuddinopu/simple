@@ -16,8 +16,19 @@
         memory: 2
         group: Ansible
         state: present
-        add_public_ip: true
-        public_ip_ports:
-          - 22
-          - 80
-        ttl: 345600
+      register: clc_data
+
+    - name: debug
+      debug: var=clc_data.servers
+    - name: Create Data memory groups
+      add_host:
+        name={{item.name}}
+        ansible_ssh_host={{ item.ipaddress }}
+        ansible_ssh_user=root
+        ansible_ssh_pass={{ root_password }}
+        groups=Data-Nodes,CDH-ALL
+      with_flattened: "{{clc_data.servers}}"
+
+    - name: Print Groups' Hosts Names
+      debug: var=groups.CDH-ALL
+      debug: var=groups.Data-Nodes
