@@ -31,5 +31,5 @@
       with_flattened: "{{clc_data.servers}}"
 
     - name: Print Groups Hosts Names
-      debug: var=groups.CDH-ALL
-      debug: var=groups.Data-Nodes
+      debug: groups.CDH-ALL
+      debug: groups.Data-Nodes
