@@ -28,11 +28,11 @@
         ansible_ssh_pass=Yahoo@123
         group=Data
       with_items: "{{clc_data[1].servers}}"
+    - debug: 
+      msg={% for host in groups['Data'] %}{{host}}{{" , "}}{%- endfor -%}
 #    - debug: msg="{{groups['Data-Nodes']}}"
 #    - name: instant var
 #      vars:
 #        mgmnt01: "{{groups['Data-Nodes']|first}}" 
 #    - debug: var=mgmnt01
-    - debug: 
-      msg={% for host in groups['Data'] %}{{host}}{{" , "}}{%- endfor -%}
 #    - debug: Data
