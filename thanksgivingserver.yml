@@ -30,5 +30,4 @@
         groups=Data-Nodes,CDH-ALL
       with_flattened: "{{clc_data.servers}}"
 
-    - shell: echo "data node group: " {{ item }}
-      with_items: "{{ groups.Data-Nodes }}"
+      debug: groups.Data-Nodes 
