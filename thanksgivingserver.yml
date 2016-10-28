@@ -28,5 +28,4 @@
          ansible_ssh_pass=Yahoo@123
          groups=Data-Nodes,CDH-ALL
        with_items: "{{clc_data.servers}}"
-
-       debug: groups.Data-Nodes 
+       debug: groups.Data-Nodes
