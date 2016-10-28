@@ -20,7 +20,9 @@
       register: clc_data
 
     - name: debug
-      debug: var=clc_data.servers
+      debug: var=clc_data.ipaddress
+      
+      
     - name: Create Data memory groups
       add_host:
         name={{item.name}}
