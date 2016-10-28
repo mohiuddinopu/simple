@@ -29,5 +29,5 @@
         groups=Data-Nodes,CDH-ALL
       with_flattened: "{{clc_data.servers}}"
       
-     - name: print group contents
-       debug: groups.Data-Nodes
+    - name: print group contents
+      debug: groups.Data-Nodes
