@@ -15,7 +15,7 @@
         count: 2
         cpu: 1
         memory: 2
-        group: host_test_0
+        group: host_test_1
         state: present
       register: clc_data
     - name: debug
@@ -30,7 +30,7 @@
       with_flattened: "{{clc_data.servers}}"
     - debug: msg="{{groups['Data-Nodes']}}"
     - vars
-        mgmnt01: "{{groups['Data-Nodes'][0]}}" 
+        mgmnt01: "{{groups['Data-Nodes']}}" 
     - debug: var=mgmnt01
 #   - debug: msg={% for host in groups['Data-Nodes'] %}{{ host }}{% endfor %}
 #    - debug: "{{ groups.Data-Nodes }}"
