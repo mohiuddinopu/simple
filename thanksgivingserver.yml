@@ -18,16 +18,15 @@
         group: Ansible
         state: present
       register: clc_data
-
     - name: debug
-      debug: var=clc_data         
+      debug: var=clc_data.servers
     - name: Create Data memory groups
       add_host:
-        name={{item.name}}
-        ansible_ssh_host={{ item.ipaddress }}
-        ansible_ssh_user=root
-        ansible_ssh_pass=Yahoo@123
-        groups=Data-Nodes
-      with_flattened: "{{clc_data.servers}}"
+         name={{item.name}}
+         ansible_ssh_host={{ item.ipaddress }}
+         ansible_ssh_user=root
+         ansible_ssh_pass=Yahoo@123
+         groups=Data-Nodes,CDH-ALL
+       with_flattened: "{{clc_data.servers}}"
 
-      debug: groups.Data-Nodes 
+       debug: groups.Data-Nodes 
