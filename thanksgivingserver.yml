@@ -31,4 +31,4 @@
       with_flattened: "{{clc_data.servers}}"
 
     - shell: echo "data node group: {{ item }}"
-      with_items: groups.Data-Nodes
+      with_items: "{{ groups.Data-Nodes }}"
