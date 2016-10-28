@@ -28,6 +28,6 @@
         ansible_ssh_pass=Yahoo@123
         groups=Data-Nodes,CDH-ALL
       with_flattened: "{{clc_data.servers}}"
-      
+    - debug: msg="{{ hostvars[groups['Data-Nodes']][0] }}"      
 #    - debug: "{{ groups.Data-Nodes }}"
-    - debug: msg="{{ hostvars[groups['Data-Nodes']] }}"
+
