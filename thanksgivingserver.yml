@@ -30,7 +30,7 @@
       with_flattened: "{{clc_data.servers}}"
     - debug: msg="{{groups['Data-Nodes']}}"
     - vars
-        mgmnt01: "{{groups['Data-Nodes']|first}}" 
+        mgmnt01: "{{groups['Data-Nodes'][0]}}" 
     - debug: var=mgmnt01
 #   - debug: msg={% for host in groups['Data-Nodes'] %}{{ host }}{% endfor %}
 #    - debug: "{{ groups.Data-Nodes }}"
