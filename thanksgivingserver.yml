@@ -37,3 +37,13 @@
 #        mgmnt01: "{{groups['Data-Nodes']|first}}" 
     - debug: var=Data
 #    - debug: Data
+
+
+
+- name: Instantiate Master nodes
+  hosts: Data
+  gather_facts: False
+  connection: local
+  tasks:
+    - name: creates test file 
+      shell: "mkdir /tmp/test"
