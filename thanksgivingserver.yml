@@ -27,7 +27,7 @@
         ansible_ssh_user=root
         ansible_ssh_pass=Yahoo@123
         group=Data-Nodes
-      with_items: "{{clc_data.servers|first}}"
+      with_items: "{{clc_data.servers}}"
 #    - debug: msg="{{groups['Data-Nodes']}}"
 #    - name: instant var
 #      vars:
