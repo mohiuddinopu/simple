@@ -28,6 +28,8 @@
         ansible_ssh_pass=Yahoo@123
         groups=Data-Nodes
       with_flattened: "{{ clc_data.0.servers }}"
-    - debug: group.Data-Nodes
+    - debug: {% for host in groups['Data-Nodes'] %}
+                 {{ host }}
+             {% endfor %}
 #    - debug: "{{ groups.Data-Nodes }}"
 
