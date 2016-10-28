@@ -19,7 +19,7 @@
         state: present
       register: clc_data
     - name: debug
-      debug: var=clc_data.0.servers
+      debug: var=clc_data.servers
     - name: Create Data memory groups
       add_host:
         name={{item.name}}
