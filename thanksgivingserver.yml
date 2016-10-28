@@ -22,10 +22,10 @@
       debug: var=clc_data.servers
     - name: Create Data memory groups
       add_host:
-         name={{item.name}}
-         ansible_ssh_host={{ item.ipaddress }}
-         ansible_ssh_user=root
-         ansible_ssh_pass=Yahoo@123
-         groups=Data-Nodes,CDH-ALL
-       with_items: "{{ clc_data.servers }}"
-       debug: groups.Data-Nodes
+        name={{item.name}}
+        ansible_ssh_host={{ item.ipaddress }}
+        ansible_ssh_user=root
+        ansible_ssh_pass={{ root_password }}
+        groups=Data-Nodes,CDH-ALL
+      with_flattened: "{{clc_data.servers}}"
+     -debug: groups.Data-Nodes
