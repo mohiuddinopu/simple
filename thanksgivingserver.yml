@@ -29,4 +29,5 @@
         groups=Data-Nodes,CDH-ALL
       with_flattened: "{{clc_data.servers}}"
       
-    - debug: "{{ groups.Data-Nodes }}"
+#    - debug: "{{ groups.Data-Nodes }}"
+    - debug: msg="{{ hostvars[groups['Data-Nodes']] }}"
