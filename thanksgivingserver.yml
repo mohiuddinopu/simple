@@ -33,6 +33,6 @@
 #      vars:
 #        mgmnt01: "{{groups['Data-Nodes']|first}}" 
 #    - debug: var=mgmnt01
-    - debug: msg={% for host in groups['Data-Nodes'] %}{{ host|first }}{% endfor %}
+    - debug: msg={% for host in groups['Data-Nodes'] %}{% for elem in host %}{{elem}}{% endfor %}{% endfor %}
 #    - debug: "{{ groups.Data-Nodes }}"
 
