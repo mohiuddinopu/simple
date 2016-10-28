@@ -22,12 +22,11 @@
       debug: var=clc_data.servers
     - name: Create Data memory groups
       add_host:
-        name={{item.ipaddress}}
-        ansible_ssh_host={{ item.ipaddress }}
+        name={{clc_data.servers[1].ipaddress}}
+        ansible_ssh_host={{clc_data.servers[1].ipaddress}}
         ansible_ssh_user=root
         ansible_ssh_pass=Yahoo@123
         group=Data
-      with_items: "{{clc_data[1].servers}}"
 #    - debug: 
 #      msg={% for host in groups['Data'] %}{{host}}{{","}}{%- endfor -%}
 
@@ -35,7 +34,7 @@
 #    - name: instant var
 #      vars:
 #        mgmnt01: "{{groups['Data-Nodes']|first}}" 
-    - debug: var=Data
+#    - debug: var=Data
 #    - debug: Data
 
 
