@@ -29,7 +29,8 @@
         group=Data-Nodes
       with_flattened: "{{clc_data.servers}}"
     - debug: msg="{{groups['Data-Nodes']}}"
-    - vars:
+    - name: instant var
+      vars:
         mgmnt01: "{{groups['Data-Nodes']|first}}" 
     - debug: var=mgmnt01
 #   - debug: msg={% for host in groups['Data-Nodes'] %}{{ host }}{% endfor %}
