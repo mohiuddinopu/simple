@@ -15,7 +15,7 @@
         count: 3
         cpu: 1
         memory: 2
-        group: Ansible
+        group: host_test
         state: present
       register: clc_data
     - name: debug
