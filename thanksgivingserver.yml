@@ -15,7 +15,7 @@
         count: 3
         cpu: 1
         memory: 2
-        group: host_test
+        group: host_test_0
         state: present
       register: clc_data
     - name: debug
